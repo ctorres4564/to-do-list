@@ -1,0 +1,170 @@
+/* ===== Reset simples ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;           /* melhor que 100vh no mobile */
+  padding: 16px;                /* respiro nas bordas no mobile */
+}
+
+/* ===== Container/App (usa o que existir no seu HTML) ===== */
+.container, .app {
+  background: #fff;
+  width: 100%;
+  max-width: 560px;             /* antes era width fixa de 500px */
+  padding: 30px 24px;
+  border: 1px solid #cfd8dc;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+}
+
+/* ===== Header e título ===== */
+header { margin-bottom: 28px; }
+
+h1 {
+  text-align: center;
+  color: #00796b;
+  font-size: clamp(22px, 3.8vw, 28px);  /* escala com a tela */
+  margin-bottom: 16px;                  /* afasta do input */
+  font-weight: bold;
+}
+
+/* ===== Formulário ===== */
+form {
+  display: grid;
+  grid-template-columns: 1fr auto;  /* input cresce, botão compacta */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #00796b;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 14px;
+  background-color: #00796b;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color .25s ease;
+  white-space: nowrap;
+}
+
+button:hover { background-color: #004d40; }
+
+/* ===== Lista ===== */
+ul { list-style: none; }
+li {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.completed { text-decoration: line-through; color: #888; }
+
+/* ===== Botão de apagar ===== */
+.delete-btn {
+  background-color: #d32f2f;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background-color .25s ease;
+}
+.delete-btn:hover { background-color: #b71c1c; }
+
+/* ===== Toolbar de filtros ===== */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  flex-wrap: wrap;                 /* quebra no mobile */
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border: 1px solid #00796b;
+  border-radius: 999px;
+  background: #fff;
+  color: #00796b;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.filter-btn:hover { background: #e0f2f1; }
+.filter-btn.active { background: #00796b; color: #fff; }
+
+/* ===== Contador e limpar concluídas ===== */
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;                      /* espaço entre itens */
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;                /* evita cortar texto */
+}
+#counter { font-weight: bold; }
+#clear-completed {
+  background: transparent;
+  border: 0;
+  color: #00796b;
+  cursor: pointer;
+  font-size: 14px;
+}
+#clear-completed:hover { color: #004d40; }
+
+/* ===== Edição inline ===== */
+.todo-edit {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #00796b;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  margin-top: 28px;
+  color: #00796b;
+  font-size: 13px;
+}
+
+/* ===== Responsivo: telas <= 600px ===== */
+@media (max-width: 600px) {
+  .container, .app {
+    padding: 22px 16px;
+    border-radius: 10px;
+  }
+
+  form {
+    grid-template-columns: 1fr;   /* botão vai para baixo */
+  }
+  form button { width: 100%; }
+
+  .statusbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #clear-completed { align-self: flex-end; }
+}
