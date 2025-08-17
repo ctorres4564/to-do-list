@@ -41,9 +41,8 @@ _Exemplo da interface principal da To-Do List: simples, intuitiva e responsiva. 
 
 ## 🌐 Demonstração
 
-Acesse a versão online pelo [GitHub Pages](https://seu-usuario.github.io/seu-repo/) _(substitua pelo link real quando publicar)_
-
----
+Acesse a versão online pelo [GitHub Pages](https://ctorres4564.github.io/to-do-list/)
+[![Demo Online](https://img.shields.io/badge/demo-online-brightgreen)](https://ctorres4564.github.io/to-do-list/)
 
 ## 📂 Estrutura de Pastas
 
